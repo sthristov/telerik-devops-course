@@ -1,0 +1,51 @@
+name: GraphQL demo API
+
+env:
+  DOCKER_HUB_REPO: sthristov/graphql-demo-api
+
+on:
+  push:
+    paths:
+      - demo_7/**
+      - '!demo_7/README.md'
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Test the GraphQL API
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: demo_7
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+  build:
+    name: Build and publish the GraphQL API
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    needs: [test]
+    defaults:
+      run:
+        working-directory: demo_7
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build
+        run: docker build -t $DOCKER_HUB_REPO:$(date '+%Y-%m-%d')-${GITHUB_SHA:0:8} .
+
+      - name: Push to repository
+        run: |
+          docker login --username sthristov --password ${{ secrets.DOCKER_HUB_PASSWORD }}
+          docker image push --all-tags $DOCKER_HUB_REPO

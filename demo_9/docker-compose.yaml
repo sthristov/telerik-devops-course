@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  api:
+    build: .
+    ports:
+      - "80:4000"
+    environment:
+      MONGODB_URL: mongodb://mongo:27017/teams
+  mongo:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: teams
+    volumes:
+      - ./mongo:/docker-entrypoint-initdb.d
