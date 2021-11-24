@@ -30,7 +30,7 @@ docker inspect nginx:1.20-alpine | jq .[0].GraphDriver.Data.LowerDir | jq 'split
 docker inspect $CONTAINER_ID | jq .[0].GraphDriver.Data.LowerDir | jq 'split(":")'
 
 SECOND_LAST=$(docker inspect $CONTAINER_ID | jq .[0].GraphDriver.Data.LowerDir | jq 'split(":")' | jq -r .[1])
-sudo ls -la $SECOND_LAST
+sudo tree $SECOND_LAST
 
 LAST=$(docker inspect $CONTAINER_ID | jq .[0].GraphDriver.Data.LowerDir | jq 'split(":")' | jq -r .[0])
 sudo tree $LAST
