@@ -16,6 +16,7 @@ docker rm -f nginx
 docker run --name nginx -d -v $(pwd)/page:/usr/share/nginx/html:ro -p 80:80 nginx:1.20-alpine
 docker exec nginx touch /usr/share/nginx/html/container_ro
 ls -la page/
+docker rm -f nginx
 ```
 
 ## Navigation
