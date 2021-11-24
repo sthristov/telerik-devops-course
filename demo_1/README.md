@@ -42,6 +42,7 @@ Exec a command in the container
 ```bash
 docker exec $CONTAINER_ID echo Hi from the container
 docker exec -it $CONTAINER_ID /bin/sh
+exit
 ```
 
 Stop and delete a container
