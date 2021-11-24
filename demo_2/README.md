@@ -60,6 +60,7 @@ docker run --rm -v /tmp:/host nginx:1.20-alpine /bin/sh -c 'whoami; touch /host/
 ls -la /tmp
 sudo rm /etc/docker/daemon.json
 sudo systemctl restart docker.service
+sudo rm -rf /tmp/container_* /var/lib/docker/100000.100000
 ```
 
 ## Navigation
