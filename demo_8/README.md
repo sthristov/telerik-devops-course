@@ -4,6 +4,8 @@
 
 Compare the size of the builder and final images
 
+_Note: Make sure to execute the below commands in the demo directory._
+
 ```bash
 docker build -t demo-go .
 docker images

@@ -5,6 +5,8 @@
 Mount a folder with a static site and serve it.
 Read-write and read-only mounts.
 
+_Note: Make sure to execute the below commands in the demo directory._
+
 ```bash
 docker run --name nginx -d -v $(pwd)/page:/usr/share/nginx/html -p 80:80 nginx:1.20-alpine
 curl http://docker # On the workstation

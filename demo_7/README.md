@@ -5,6 +5,8 @@
 Build a simple GraphQL API using Dockerfile locally.
 Demonstrate layer caching by adding a dummy `RUN` instruction.
 
+_Note: Make sure to execute the below commands in the demo directory._
+
 ```bash
 docker build -t api .
 dive api
