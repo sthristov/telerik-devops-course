@@ -16,5 +16,5 @@ test('Should return three teams', async () => {
     query: getTeams,
   });
   expect(result.errors).toBeUndefined();
-  expect(result.data?.teams.length).toBe(3);
+  expect(result.data?.teams.length).toBe(2);
 });
