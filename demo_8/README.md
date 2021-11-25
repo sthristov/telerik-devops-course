@@ -10,6 +10,7 @@ _Note: Make sure to execute the below commands in the demo directory._
 docker build -t demo-go .
 docker images
 dive demo-go
+docker run -it --rm demo-go
 ```
 
 ## Navigation
