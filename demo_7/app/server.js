@@ -14,6 +14,12 @@ const data = {
       members: 4,
       department: 'R&D',
     },
+    {
+      id: 3,
+      name: 'support',
+      members: 10,
+      department: 'Operations',
+    },
   ],
 };
 
