@@ -2,9 +2,9 @@ FROM node:16-alpine
 ENV NODE_ENV production
 
 WORKDIR /app
-COPY package*.json .
+COPY package*.json ./
 RUN npm ci
-COPY app/  .
+COPY app/  ./
 
 EXPOSE 4000
 CMD [ "node", "index.js" ]
